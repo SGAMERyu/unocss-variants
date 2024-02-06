@@ -122,6 +122,8 @@
     }
   },
   "dependencies": {
+    "@unocss/core": "^0.58.5",
+    "sfc-composer": "^0.8.2",
     "unplugin": "^1.5.1"
   },
   "devDependencies": {
