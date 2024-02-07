@@ -1,13 +1,11 @@
-import { MagicSFC } from 'sfc-composer/vue'
-import { parse } from 'vue/compiler-sfc'
+import { parseSFC } from '@vue-macros/common'
 
-export async function transformStyleTs(code: string) {
-  const sfc = new MagicSFC(code, { parser: parse })
-  await sfc.parse()
-  const currentStyle = sfc.styles[0]
-  console.log(sfc.styles[0])
-  currentStyle.remove(currentStyle.loc.start.line, currentStyle.loc.end.line)
-  const newCode = sfc.getTransformResult()
-  console.log(newCode.code)
+export async function transformStyleTs(code: string, id: string) {
+  const sfc = parseSFC(code, id)
+  if (!sfc.scriptSetup) return
+  const { scriptSetup, getSetupAst, getScriptAst } = sfc
+  const setupOffset = scriptSetup.loc.start.offset
+  const setupAst = getSetupAst()!
+  console.log(setupAst.body!)
   return code
 }
