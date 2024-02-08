@@ -8,8 +8,8 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = options => 
   transformInclude(id) {
     return id.endsWith('vue')
   },
-  transform(code) {
-    return transformStyleTs(code)
+  transform(code, id) {
+    return transformStyleTs(code, id)
   },
 })
 

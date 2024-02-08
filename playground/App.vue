@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-defineUnocss({
+defineUnoCssVariant({
   base: 'text-sm'
 })
 </script>
