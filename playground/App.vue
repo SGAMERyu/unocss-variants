@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-defineUnoCssVariant({
-  base: 'text-sm'
+const test = defineUnoCssVariant({
+  base: 'text-sm font-500',
 })
 </script>
 
 <template>
-  <div>hello unocss variants</div>
+  <div :class="test()">hello unocss variants</div>
 </template>
